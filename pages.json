@@ -23,6 +23,15 @@
                 "enablePullDownRefresh": false
             }
             
+        },
+        {
+            "path" : "pages/goodsWarehousing/goodsWarehousing",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品入库",
+                "enablePullDownRefresh": false
+            }
+            
         }
     ],
 	"globalStyle": {

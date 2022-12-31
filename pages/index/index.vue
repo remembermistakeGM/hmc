@@ -12,7 +12,7 @@
 						<text>库存盘点</text>
 					</view>	
 			</navigator>
-			<navigator  url="" class="nav_item_url">
+			<navigator  url="/pages/goodsWarehousing/goodsWarehousing" class="nav_item_url">
 					<view class="nav_item color2">
 						<image src="../../static/ruku.png"></image>
 						<text>商品入库</text>
