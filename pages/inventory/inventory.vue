@@ -13,13 +13,8 @@
 				<button>操作记录</button>
 			</view>
 		</view>
-		<view class="claassify_group">
-			<view class="classify_item" v-for="(item, index) in classify" :key="index"
-				:class="[item.isSelect == '1' ? 'is_active' : '']"><text>
-					{{ item.title }}
-				</text>
-			</view>
-		</view>
+		<!-- 分类 -->
+		<classify></classify>
 
 	<view class="tables">
 		<view class="thead">
@@ -64,16 +59,16 @@
 
 <script>
 import main_menu from '../components/Main_menu/Main_menu.vue';
+import classify from '../components/classify/classify.vue';
+
 export default {
 	components: {
-		main_menu: main_menu
+		main_menu,
+		classify
 	},
 	data() {
 		return {
-			classify: [
-				{ title: "全部", isSelect: 1 },
-				{ title: "蟹类", isSelect: 0 },
-			],
+			
 			lists:[
               {id: '458', goodsname: '波士顿大龙虾',image: "https://swjls.shuxiaoliu.com//Uploads/image/goods/2022-12-16/639c1c17c3715.png",inventory: 1.01,sh:0,cbjj:0,pdtime:"2022-12-29 17:37:06" },
               {id: '458', goodsname: '波士顿大龙虾',image: "https://swjls.shuxiaoliu.com//Uploads/image/goods/2022-12-16/639c1c17c3715.png",inventory: 1.01,sh:0,cbjj:0,pdtime:"2022-12-29 17:37:06" },
@@ -93,12 +88,8 @@ export default {
 .top_cell {
 	padding: 40rpx 20rpx;
 	background-color: #e6e6e6;
-}
-
-.top_cell {
 	display: flex;
 	justify-content: space-between;
-
 }
 
 .search_box {
@@ -129,27 +120,6 @@ export default {
 	font-weight: bold;
 }
 
-.claassify_group {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 40rpx;
-}
-
-.claassify_group .classify_item {
-	border: 1rpx solid #eee;
-	margin-left: 20rpx;
-	padding: 0rpx 40rpx;
-	line-height: 3rem;
-	height: 3rem;
-	font-size: 1.2rem;
-	color: #666;
-	margin-top: 20rpx;
-}
-
-.is_active {
-	color: #21ad42 !important;
-	border-color: #21ad42 !important;
-}
 .thead .tr{
 	display: flex;
 	width: 100%;

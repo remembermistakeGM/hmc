@@ -18,7 +18,7 @@
 						<text>商品入库</text>
 					</view>	
 			</navigator>
-				<navigator  url="" class="nav_item_url">
+				<navigator  url="/pages/collection/collection" class="nav_item_url">
 						<view class="nav_item color3">
 							<image src="../../static/xiadan.png"></image>
 							<text>收银台</text>
