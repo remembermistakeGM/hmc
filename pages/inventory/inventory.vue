@@ -1,7 +1,6 @@
 <template>
 	<view class="inventory">
-		<!-- 返回主菜单按钮 -->
-		<main_menu></main_menu>
+	
 		<view class="top_cell">
 			<view></view>
 			<view class="search_box">
@@ -58,12 +57,10 @@
 </template>
 
 <script>
-import main_menu from '../components/Main_menu/Main_menu.vue';
 import classify from '../components/classify/classify.vue';
 
 export default {
 	components: {
-		main_menu,
 		classify
 	},
 	data() {
@@ -135,6 +132,7 @@ export default {
 	flex: 1;
 	text-align: center;
 	align-items: center;
+    color: #666;
 }
 .tbody .tr{
 	display: flex;
@@ -146,7 +144,7 @@ export default {
 	flex: 1;
 	align-items: center;
 	text-align: center;
-	padding: 0rpx 20rpx;
+	padding: 10rpx 20rpx;
 
 }
 .tdimg{

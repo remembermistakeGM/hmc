@@ -33,6 +33,16 @@
             }
             
         }
+        ,
+        {
+            "path" : "pages/goodsWarehousing/WhRecording",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "入库记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
         ,{
             "path" : "pages/components/classify/classify",
             "style" :                                                                                    
@@ -48,7 +58,31 @@
                 "navigationBarTitleText": "收银台",
                 "enablePullDownRefresh": false
             }
+        },
+		{
+		    "path" : "pages/market/market",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "门店营销",
+		        "enablePullDownRefresh": false
+		    }
+		},{
+		    "path" : "pages/market/manjian", 
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "减满",
+		        "enablePullDownRefresh": false
+		    }
+        },
+        { 
+		    "path" : "pages/orderapply/orderapply", 
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "订货申请",
+		        "enablePullDownRefresh": false
+		    }
         }
+        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

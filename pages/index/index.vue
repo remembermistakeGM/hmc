@@ -29,8 +29,8 @@
 							<image src="../../static/jg.png"></image>
 							<text>价格管理</text>
 						</view>	
-				</navigator>
-				<navigator  url="" class="nav_item_url">
+				</navigator> 
+				<navigator  url="/pages/market/market" class="nav_item_url">
 						<view class="nav_item color5">
 							<image src="../../static/md.png"></image>
 							<text>门店营销</text>
@@ -42,7 +42,7 @@
 							<text>进货</text>
 						</view>	
 				</navigator>
-				<navigator  url="" class="nav_item_url">
+				<navigator  url="/pages/orderapply/orderapply" class="nav_item_url">
 						<view class="nav_item color7">
 							<image src="../../static/bh.png"></image>
 							<text>订货申请</text>
