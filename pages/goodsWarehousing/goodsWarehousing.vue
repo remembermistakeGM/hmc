@@ -2,21 +2,18 @@
   <view class="goodsWarehousing">
     <!-- 商品入库	 -->
 
-    <!-- 返回主菜单按钮 -->
-    <main_menu></main_menu>
-
     <view class="top_cell">
       <view class="top_cell_left">
-        <button>订货单入库</button>
-        <button>调货入库</button>
+        <button @click="onDhd">订货单入库</button>
+        <button  @click="onJh">调货入库</button>
         <button>批量商品表入库</button>
         <button>excel模板下载</button>
       </view>
       <view class="search_box">
         <input placeholder="请输入商品名称或首字母" />
       </view>
-      <view class="top_cell_right">
-        <button>操作记录</button>
+      <view class="top_cell_right" @click="goLink">
+        <button >操作纪录</button>
       </view>
     </view>
 
@@ -37,41 +34,111 @@
 	</view>
       </view>
     </view>
-<!-- 弹出层 -->
-<view class="center" v-if="isShowMask" >
-	<view class="mask_main" :class="{'modal': 'isShowMask'}">
-	<view class="mask_title">商品入库</view>
-	<view class="mask_text1">小龙虾</view>
-	<view class="mask_text2">当前库存：20斤</view>
-	<view class="radio_group">
-		<text class="radio_title">选择入库方式：</text>
-		<radio-group @change="radioChange" class="radio_group_item">
-			<label class="uni-list-cell uni-list-cell-pd radio_cell" v-for="(item, index) in items" :key="item.value">
-				<view>
-					<radio :value="item.value" :checked="index === current" />
-				</view>
-				<view>{{item.name}}</view>
-			</label>
-		</radio-group>
-	</view>
-	<view class="mask_input"><input class="uni-input" type="number" focus placeholder="请输入库存" /></view>
-	<view class="onsubmit"><button>确认</button></view>
-</view> 
-<view class="mask_bg" @click="onClose"></view>
-</view>
-	
+
+<!-- 点击商品入库弹窗 -->
+<main-mask :maskStatus="isShowMask" :mWidth="1000" :mHeight="800" @onClose="onClose">
+  <template v-slot:content>
+ 
+      <view class="mask_title">商品入库</view>
+      <view class="mask_text1">小龙虾</view>
+      <view class="mask_text2">当前库存：20斤</view>
+      <view class="radio_group">
+        <text class="radio_title">选择入库方式：</text>
+        <radio-group @change="radioChange" class="radio_group_item">
+          <label class="uni-list-cell uni-list-cell-pd radio_cell" v-for="(item, index) in items" :key="item.value">
+            <view>
+              <radio :value="item.value" :checked="index === current" />
+            </view>
+            <view>{{item.name}}</view>
+          </label>
+        </radio-group>
+      </view>
+      <view class="mask_input"><input class="uni-input" type="number" focus placeholder="请输入库存" /></view>
+      <view class="onsubmit"><button>确认</button></view>
 
 
-  </view>
+  </template>
+
+</main-mask>
+
+<!-- 订货单入库弹窗 -->
+<main-mask :maskStatus="isShowMaskDhd" :mWidth="1500" :mHeight="900"  @onClose="onCloseDhd">
+  <template v-slot:content>
+    <view class="mask_title">进货单</view>
+    <view class="tables">
+      <view class="thead">
+        <view class="tr">
+          <view class="td">商品</view>
+          <view class="td">进货量</view>
+          <view class="td">单位</view>
+          <view class="td">实际进货量</view>
+          <view class="td">上次进货价</view>
+          <view class="td">上次进货量</view>
+          <view class="td">备注</view>
+        </view>
+      </view>
+      <view class="tbody">
+        <scroll-view scroll-y="true" style="height:500rpx" >
+      <view class="tr"  v-for="(list,index) in dhdlist" :key="index">
+        <view class="td">{{list.goodsname}}</view>
+        <view class="td">{{list.num}}</view>
+        <view class="td">{{list.unit}}</view>
+        <view class="td">{{list.sjnum}}</view>
+        <view class="td">{{list.lastprice}}</view>
+        <view class="td">{{list.lastnum}}</view>
+        <view class="td">{{list.remark}}</view>
+      </view>	
+    </scroll-view>
+      </view>
+    </view>
+    <view class="dhd_bottom"> 
+      <button>确认</button>
+      <button @click="onParentColseDhd">取消</button>
+    </view>
+  </template>
+
+</main-mask>
+
+<!-- 调货入库弹窗 -->
+<main-mask :maskStatus="isShowMaskJh" :mWidth="1500" :mHeight="900"  @onClose="onCloseDJh">
+  <template v-slot:content>
+    <view class="mask_title">调货入库</view>
+    <view class="tables">
+      <view class="thead">
+        <view class="tr">
+          <view class="td">商品</view>
+          <view class="td">进货量</view>
+          <view class="td">门店</view>
+        </view>
+      </view>
+      <view class="tbody">
+        <scroll-view scroll-y="true" style="height:500rpx">
+      <view class="tr"  v-for="(list,index) in jhlist" :key="index">
+        <view class="td">{{list.goodsname}}</view>
+        <view class="td">{{list.num}}</view>
+        <view class="td">{{list.mdname}}</view>
+      </view>	
+    </scroll-view>
+      </view>
+    </view>
+    <view class="dhd_bottom"> 
+      <button>确认</button>
+      <button @click="onParentColseJh">取消</button>
+    </view>
+  </template>
+
+</main-mask>
+  </view> 
 </template>
-
 <script>
-import main_menu from "../components/Main_menu/Main_menu.vue";
+
 import classify from "../components/classify/classify.vue";
+import mainMask from "../components/mainMask/mainMask.vue";
+
 
 export default {
   components: {
-    main_menu,
+    mainMask,
     classify,
   },
   data() {
@@ -89,7 +156,11 @@ export default {
                 },
 		  ],
 		 current: 0,//选中状态
-		 isShowMask:false,//弹出层状态		
+		 isShowMask:false,//商品入库弹出层状态，
+     mWidth:1000,
+     mHeight:800,
+		 isShowMaskDhd:false,//商品入库弹出层状态，		
+     isShowMaskJh:false,//调货入库弹出层状态，
       list: [
         {
           id: "458",
@@ -155,6 +226,28 @@ export default {
           unit: "斤",
         },
       ],
+      // 订货单
+      dhdlist:[
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+              {id: '458',num:'1',  goodsname: '波士顿大龙虾',unit: "斤",sjnum: 1.01,lastprice:0,lastnum:0,remark:"鱼 2斤" },
+			],
+      // 调货入库
+      jhlist:[
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',mdname: "总店", },
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',mdname: "总店", },
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',mdname: "总店", },
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',mdname: "总店", },
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',mdname: "总店", },
+              {id: '458',num:'1', goodsname: '波士顿大龙虾',mdname: "总店", },
+
+			],
     };
   },
   methods: {
@@ -166,18 +259,46 @@ export default {
                 }
             }
         },
-		//打开弹出层
+		//打开商品入库弹出层
 		onShowMask(){
 			this.isShowMask = true
-
-			
 		},
-		// 关闭弹出层
-		onClose(){
-			this.isShowMask = false
-			
-		}
-
+		// 关闭商品入库弹出层
+		onClose(e){
+			this.isShowMask = e
+		},
+    // 点击订货单入库
+    onDhd(){
+			this.isShowMaskDhd = true
+    },
+    //取消订货单
+    onParentColseDhd(){
+			this.isShowMaskDhd = false
+    },
+    // 关闭订货单入库弹窗 子组件传过来
+    onCloseDhd(e){
+			this.isShowMaskDhd = e
+    },
+    
+    // 点击调货入库
+    onJh(){
+			this.isShowMaskJh = true
+    },
+    //取消调货入库
+    onParentColseJh(){
+			this.isShowMaskJh = false
+    },
+    // 关闭调货入库弹窗 子组件传过来
+    onCloseDJh(e){
+			this.isShowMaskJh = e
+    },
+    goLink(){
+      // console.log(123);
+      uni.navigateTo({
+         url: '/pages/goodsWarehousing/WhRecording'
+      });
+    }
+    
 
   },
 };
@@ -266,27 +387,7 @@ export default {
 	font-weight: bold;
 }
 
-.mask_main {
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1000rpx;
-    height: 800rpx;
-	z-index: 9999;
-	background-color: #fff;
-	border-radius: 18rpx;
-	
-}
-.mask_bg{
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background-color: rgba(000, 000, 000, .5);
-	z-index: 9998;
-}
+
 .mask_title{
 	font-weight: bold;
 	text-align: center;
@@ -318,26 +419,58 @@ export default {
 		font-weight: bold;
 		line-height: 3rem;
 		font-size: 1.3rem;
-		
 }
-@keyframes scaleUp {
-	0% {
-	  transform: scale(0.8) translateY(500px);
-	  opacity: 0;
-	}
-	100% {
-	  transform: scale(1) translateX(-50%)  translateY(-50%);
-	  opacity: 1;
-	}
-  }
- 
-  .modal {
-	animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
 .onsubmit button{
 	background-color: #009688;
 	color: #fff;
 	margin: 20rpx 100rpx;
+
+}
+
+.thead .tr{
+	display: flex;
+	width: 100%;
+	height: 3rem;
+	align-items: center;
+	
+}
+.thead .tr .td{
+	background-color: #f0f0f0;
+	height: 3rem;
+	line-height: 3rem;
+	padding: 0rpx 20rpx;
+	flex: 1;
+	text-align: center;
+	align-items: center;
+}
+.tbody .tr{
+	display: flex;
+	align-items: center;
+	padding:10rpx 0rpx ;
+	border-bottom: 1rpx solid #e5e5e5;
+}
+.tbody .tr .td{
+	flex: 1;
+	align-items: center;
+	text-align: center;
+	padding: 0rpx 20rpx;
+  font-size: 0.95rem;
+
+}
+.dhd_bottom{
+  display: flex;
+  justify-content: center;
+  padding: 60rpx;
+}
+.dhd_bottom button{
+  background-color: #009688;
+	color: #fff;
+  width: 160rpx;
+}
+.dhd_bottom button:nth-child(2){
+  background-color: #c5c5c5;
+	color: rgb(0, 0, 0);
+
 
 }
 </style>
