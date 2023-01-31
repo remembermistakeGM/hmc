@@ -1,7 +1,6 @@
 <template>
 
 	<view class="content">
-	
 			<view class="home_title">
 				菜单功能
 			</view>

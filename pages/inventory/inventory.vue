@@ -9,7 +9,7 @@
 			<view class="top_cell_right">
 				<button>一键清零</button>
 				<button>导出</button>
-				<button>操作记录</button>
+				<button @click="golink" data-id="./inventoryOrder">操作记录</button>
 			</view>
 		</view>
 		<!-- 分类 -->
@@ -39,7 +39,7 @@
 			<view class="td">{{list.pdtime}}</view>
 			<view class="td">
 				<view class="td_icon">
-				<text class="iconfont icon-xiugai07"></text>
+				<text class="iconfont icon-xiugai07" @click="onPd"></text>
 				<text class="iconfont icon-frost"></text>
 				<text class="iconfont icon-shanchu"></text>
 				</view>
@@ -52,31 +52,53 @@
 		</view>
 
 	</view>
-
+	<main-mask :maskStatus="isShowMaskPd" :mWidth="1000" :mHeight="700"  @onClose="onClosePd">
+		<template v-slot:content>
+			<view class="mask_title">库存盘点</view>
+			<view class="mask_text1">小龙虾</view>
+			<view class="mask_text2">当前库存：20斤</view>
+			<view class="mask_input"><input class="uni-input" type="number" focus placeholder="请输入盘点库存" /></view>
+			<view class="onsubmit"><button>确认</button></view>
+		</template>
+	</main-mask>
 	</view>
 </template>
 
 <script>
+
 import classify from '../components/classify/classify.vue';
+import mainMask from "../components/mainMask/mainMask.vue";
 
 export default {
 	components: {
-		classify
+		classify,
+		mainMask
 	},
 	data() {
 		return {
-			
 			lists:[
               {id: '458', goodsname: '波士顿大龙虾',image: "https://swjls.shuxiaoliu.com//Uploads/image/goods/2022-12-16/639c1c17c3715.png",inventory: 1.01,sh:0,cbjj:0,pdtime:"2022-12-29 17:37:06" },
               {id: '458', goodsname: '波士顿大龙虾',image: "https://swjls.shuxiaoliu.com//Uploads/image/goods/2022-12-16/639c1c17c3715.png",inventory: 1.01,sh:0,cbjj:0,pdtime:"2022-12-29 17:37:06" },
               {id: '458', goodsname: '波士顿大龙虾',image: "https://swjls.shuxiaoliu.com//Uploads/image/goods/2022-12-16/639c1c17c3715.png",inventory: 1.01,sh:0,cbjj:0,pdtime:"2022-12-29 17:37:06" },
               {id: '458', goodsname: '波士顿大龙虾',image: "https://swjls.shuxiaoliu.com//Uploads/image/goods/2022-12-16/639c1c17c3715.png",inventory: 1.01,sh:0,cbjj:0,pdtime:"2022-12-29 17:37:06" },
-
-			]
+			],
+			isShowMaskPd:false
 		}
 	},
 	methods: {
-		
+		golink(e){
+			let url=e.currentTarget.dataset.id
+			uni.navigateTo({
+				url
+			})
+		},
+		onPd(){
+			this.isShowMaskPd =true
+		},
+		onClosePd(){
+			this.isShowMaskPd =false
+
+		}
 	}
 }
 </script>
@@ -164,4 +186,28 @@ export default {
 	padding:0rpx 20rpx;
 	color: #009688;
 }
+.mask_title{
+	font-weight: bold;
+	text-align: center;
+	margin: 30rpx auto; 
+}
+.mask_text2{
+	margin: 20rpx 0;
+}
+.mask_input input{
+	padding: 20rpx;
+   border: 1px solid #009688;
+   border-radius: 20rpx;
+   margin: 50rpx;
+   font-weight: bold;
+   line-height: 3rem;
+   font-size: 1.3rem;
+}
+.onsubmit button{
+	background-color: #009688;
+	color: #fff;
+	margin: 20rpx 100rpx;
+
+}
+
 </style>
