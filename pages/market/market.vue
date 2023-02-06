@@ -8,19 +8,19 @@
 				<text>满减</text>	 
 			</view>
 			<view class="margket-item">
-				<navigator class="margket-image">
+				<navigator class="margket-image" url="/pages/market/tejia">
 				<image src="../../static/jianshao.png"></image>.
 				</navigator>
 				<text>特价</text>	
 			</view>
 			<view class="margket-item">
-				<navigator class="margket-image">
+				<navigator class="margket-image" url="/pages/market/mz">
 				<image src="../../static/jianshao.png"></image>.
 				</navigator>
 				<text>买赠</text>	
 			</view>
 			<view class="margket-item">
-				<navigator class="margket-image">
+				<navigator class="margket-image" url="/pages/market/zk">
 				<image src="../../static/jianshao.png"></image>.
 				</navigator>
 				<text>第二件折扣</text>	

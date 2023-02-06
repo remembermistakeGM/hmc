@@ -5,94 +5,102 @@
 			"style": {
 				"navigationBarTitleText": "海满仓收银"
 			}
-		}
-	    ,{
-            "path" : "pages/inventory/inventory",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "库存盘点",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/components/Main_menu/Main_menu",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        },
-        {
-            "path" : "pages/goodsWarehousing/goodsWarehousing",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "商品入库",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,
-        {
-            "path" : "pages/goodsWarehousing/WhRecording",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "入库记录",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/components/classify/classify",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        }
-        ,{
-            "path" : "pages/collection/collection",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "收银台",
-                "enablePullDownRefresh": false
-            }
-        },
+		},
 		{
-		    "path" : "pages/market/market",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "门店营销",
-		        "enablePullDownRefresh": false
-		    }
-		},{
-		    "path" : "pages/market/manjian", 
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "减满",
-		        "enablePullDownRefresh": false
-		    }
-        },
-        { 
-		    "path" : "pages/orderapply/orderapply", 
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "订货申请",
-		        "enablePullDownRefresh": false
-		    }
-        }
-        
-        ,{
-            "path" : "pages/inventory/inventoryOrder",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "盘点记录",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+			"path": "pages/inventory/inventory",
+			"style": {
+				"navigationBarTitleText": "库存盘点",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/components/Main_menu/Main_menu",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/goodsWarehousing/goodsWarehousing",
+			"style": {
+				"navigationBarTitleText": "商品入库",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/goodsWarehousing/WhRecording",
+			"style": {
+				"navigationBarTitleText": "入库记录",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/components/classify/classify",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/collection/collection",
+			"style": {
+				"navigationBarTitleText": "收银台",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/market/market",
+			"style": {
+				"navigationBarTitleText": "门店营销",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/market/manjian",
+			"style": {
+				"navigationBarTitleText": "减满",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/orderapply/orderapply",
+			"style": {
+				"navigationBarTitleText": "订货申请",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/inventory/inventoryOrder",
+			"style": {
+				"navigationBarTitleText": "盘点记录",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/priceAdmin/priceAdmin",
+			"style": {
+				"navigationBarTitleText": "价格管理"
+			}
+		},
+		{
+			"path": "pages/market/tejia",
+			"style": {
+				"navigationBarTitleText": "特价"
+			}
+		},
+		{
+			"path": "pages/market/zk",
+			"style": {
+				"navigationBarTitleText": "第二件折扣"
+			}
+		},
+		{
+			"path": "pages/market/mz",
+			"style": {
+				"navigationBarTitleText": "买赠"
+			}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

@@ -23,7 +23,7 @@
 							<text>收银台</text>
 						</view>	
 				</navigator>
-				<navigator  url="" class="nav_item_url">
+				<navigator  url="/pages/priceAdmin/priceAdmin" class="nav_item_url">
 						<view class="nav_item color4">
 							<image src="../../static/jg.png"></image>
 							<text>价格管理</text>
