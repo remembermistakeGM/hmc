@@ -24,7 +24,7 @@
 							<text class="dk_list_price">单价:{{item.price}}</text>
 							<text class="dk_list_total">小计:12</text>
 						</view>
-						<view class='dk_list_md3'><text class="iconfont icon-shanchu"></text></view>
+						<view class='dk_list_md3'><text class="iconfont icon-shanchu" :data-index="index"  @click="removeCart"></text></view>
 					
 					</view> 
 				</scroll-view> 
@@ -199,11 +199,15 @@ export default {
 		},
 		onSelectcart(e){
 			this.currentCart = e.currentTarget.dataset.index
-		}
+		},
 		// onChange(e){
 		// 	const { value } = e.target;
 		// 	console.log("检测到变化"+value);
 		// }
+		removeCart(e){
+			const index = e.currentTarget.dataset.index //商品索引
+			this.coll.splice(index,1)//移除
+		}
 
 	},
 	

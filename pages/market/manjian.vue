@@ -11,12 +11,13 @@
         >
           <view>
             <radio :value="item.value" :checked="index === current"/>
-          </view>
+          </view> 
           <view>{{item.name}}</view>
         </label>
       </radio-group>
 </view>
     </view>
+	<view class='' v-if="!current">
     <view class="mj_cell">
       <view class="mj_cell_text">活动时间</view>
 	  <view class="mj_cell_label">
@@ -44,6 +45,7 @@
 			<button class="mj_cell_btn"  @click="plus">+添加优惠项</button>
 			<button class="mj_cell_btn" @click="reduce">-删除优惠项</button>
 	</view>
+</view>
   </view>
 </template>
 
@@ -61,7 +63,7 @@ export default {
         { value: "1", name: "开启" },
         { value: "0", name: "关闭", checked: "true" }
       ],
-	  current: 0,
+	  current: 1,
 	 date: currentDate,
 	 date1: currentDate1,
 		yhList:[

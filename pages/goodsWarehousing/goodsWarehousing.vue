@@ -18,7 +18,7 @@
     </view>
 
     <!-- 商品分类 -->
-    <classify></classify>
+    <classify :classifylist="classify"></classify>
 
     <!-- 商品列表 -->
     <view class="goods_group">
@@ -161,6 +161,10 @@ export default {
      mHeight:800,
 		 isShowMaskDhd:false,//商品入库弹出层状态，		
      isShowMaskJh:false,//调货入库弹出层状态，
+     classify: [
+                    { title: "全部",  },
+                    { title: "蟹类",  },
+			 ],
       list: [
         {
           id: "458",

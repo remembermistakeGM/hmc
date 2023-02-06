@@ -1,30 +1,35 @@
 <template>
 	<!-- 分类 -->
     <view class="claassify_group">
-        <view class="classify_item" v-for="(item, index) in classify" :key="index"
-            :class="[item.isSelect == '1' ? 'is_active' : '']"><text>
+        <view  class="classify_item" v-for="(item, index) in classifylist" :key="index"
+             :class="[ifyCurrent == index ? 'is_active' : '']" @click="onClassify" :data-index="index"><text>
                 {{ item.title }}
-            </text>
+            </text> 
         </view>
     </view>
 </template>
 
 <script>
 	export default {
+		props: {
+   		 classifylist:{
+     	 type:Array,
+     	 default:[]
+		},
+		},
 		data() {
 			return {
-				classify: [
-                    { title: "全部", isSelect: 1 },
-                    { title: "蟹类", isSelect: 0 },
-			],
+				ifyCurrent:0
 			}
 		},
 		methods: {
-		
+			onClassify(e){
+				const i = e.currentTarget.dataset.index
+				this.ifyCurrent = i
+			}
 		}
 	}
 </script>
-
 <style>
 .claassify_group {
 	display: flex;
@@ -32,7 +37,6 @@
 	margin: 40rpx;
     padding-left: 100rpx;
 }
-
 .claassify_group .classify_item {
 	border: 1rpx solid #eee;
 	margin-left: 20rpx;
