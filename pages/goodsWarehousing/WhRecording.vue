@@ -55,7 +55,6 @@
                 {id:12,goodsname:'你好技',goodsimg:"https://swjls.shuxiaoliu.com/Uploads/image/cache/goods/2022-08-10/62f3409d5e216-100x100.jpg",pdqnum:12,pdhnum:12,sh:12,pdtime:'2021-20-10',pduser:'㔿'},
                 {id:12,goodsname:'你好技',goodsimg:"https://swjls.shuxiaoliu.com/Uploads/image/cache/goods/2022-08-10/62f3409d5e216-100x100.jpg",pdqnum:12,pdhnum:12,sh:12,pdtime:'2021-20-10',pduser:'㔿'},
                 {id:12,goodsname:'你好技',goodsimg:"https://swjls.shuxiaoliu.com/Uploads/image/cache/goods/2022-08-10/62f3409d5e216-100x100.jpg",pdqnum:12,pdhnum:12,sh:12,pdtime:'2021-20-10',pduser:'㔿'},
-
             ],
              date: currentDate,
         };
