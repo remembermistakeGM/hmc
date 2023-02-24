@@ -53,13 +53,13 @@
 							<text>调货</text>
 						</view>	
 				</navigator>
-				<navigator  url="" class="nav_item_url">
+				<navigator  url="/pages/order/order" class="nav_item_url">
 						<view class="nav_item color9">
 							<image src="../../static/ddjl.png"></image>
 							<text>订单记录</text>
 						</view>	
 				</navigator>
-				<navigator  url="" class="nav_item_url">
+				<navigator  url="/pages/member/member" class="nav_item_url">
 						<view class="nav_item color10">
 							<image src="../../static/wdhy.png"></image>
 							<text>会员管理</text>
